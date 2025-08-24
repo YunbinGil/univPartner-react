@@ -10,6 +10,9 @@ def create_app():
     load_dotenv()  # .env 파일에서 환경 변수 로드
 
     app = Flask(__name__)
+    
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev')
+    
     app.config['MYSQL_HOST'] = os.getenv("MYSQL_HOST", "localhost")
     app.config['MYSQL_USER'] = os.getenv("MYSQL_USER", "root")
     app.config['MYSQL_PASSWORD'] = os.getenv("MYSQL_PASSWORD", "")
@@ -21,6 +24,6 @@ def create_app():
     CORS(app, supports_credentials=True, origins=["http://localhost:5173"])
 
     from .routes import main
-    app.register_blueprint(main)
+    app.register_blueprint(main, url_prefix='/api')
     
     return app

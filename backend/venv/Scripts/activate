@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\KU_2\25summer\partnerPrj-react\backend\.venv"
+VIRTUAL_ENV="C:\KU_2\25summer\partnerPrj-react\backend\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -54,7 +54,7 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
-    PS1="(.venv) ${PS1:-}"
+    PS1="(venv) ${PS1:-}"
     export PS1
 fi
 
