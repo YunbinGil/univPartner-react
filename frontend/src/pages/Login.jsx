@@ -1,9 +1,10 @@
-// src/pages/Login.jsx
+import { useNavigate } from 'react-router-dom';
 
 import Logo from '../assets/LOGO-l.svg?react'
 import '../styles/index.css' 
 
 export default function Login() {
+  const nav = useNavigate();
   return (
     <main className="login-wrap">
       <div className="login-card">
@@ -21,7 +22,7 @@ export default function Login() {
             <input id="password" type="password" placeholder="비밀번호 입력" />
           </div>
 
-          <button className="submit">로그인 하기</button>
+          <button className="submit" onClick={() => nav('/home')}>로그인 하기</button>
         </form>
             <a href="/signup" className="help-link">아직 회원이 아니신가요?</a>
             <a href="/forgot-password" className="help-link">비밀번호를 잊으셨나요?</a>
