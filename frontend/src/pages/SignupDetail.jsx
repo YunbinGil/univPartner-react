@@ -1,4 +1,5 @@
 // src/pages/SignupAcademic.jsx
+import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import "../styles/signupDetail.css";
 
@@ -9,6 +10,8 @@ export default function SignupDetail() {
   const [univ, setUniv] = useState("");
   const [college, setCollege] = useState("");
   const [dept, setDept] = useState("");
+
+  const nav = useNavigate();
 
   return (
     <div className="signup-ac-root">
@@ -94,7 +97,7 @@ export default function SignupDetail() {
 
         {/* 시작하기 버튼 */}
         <div className="footer">
-          <button className="btn btn-primary btn-lg m1-semiB" type="button">시작하기</button>
+          <button className="btn btn-primary btn-lg m1-semiB" type="button" onClick={()=> nav('/home')}>시작하기</button>
         </div>
       </div>      
     </div>

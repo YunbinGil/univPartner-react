@@ -4,23 +4,24 @@
 @import url("./fonts.css");
 
 .signup-ac-root{
-  width:100%; min-height:100vh; position:relative; background:#fff;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  padding:48px 16px; box-sizing:border-box;
+  width:100%; min-height:100vh; position:relative; background:var(--color-bg);
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  padding:64px 16px 48px; box-sizing:border-box;
 }
 
 /* 좌상단 작은 타이틀 (원본: h2 40/700/LS 4) */
 .page-h2{
-  position:absolute; top:173px; left:720px;
+  position:static;
   font-family:var(--font-family-main); font-size:var(--h2-size); font-weight:var(--h2-weight);
   letter-spacing:var(--h2-letter-spacing); color:#000; margin:0;
 }
 
 /* 큰 타이틀 */
 .page-h1{
-  position:absolute; top:284px; left:553px;
+  position:static; top:284px; left:553px;
   font-family:var(--font-family-main); font-size:var(--h1-size); font-weight:var(--h1-weight);
   letter-spacing:var(--h1-letter-spacing); color:#000; margin:0;
+  text-align: center; line-height: 1.1; white-space: nowrap;
 }
 
 /* 카드 */
