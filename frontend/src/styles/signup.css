@@ -19,6 +19,10 @@
   text-align: center;
   color: var(--color-text);
 }
+.signup-subtitle.h3{
+  font-weight: 800;
+  color: var(--color-amber)
+}
 
 .signup-card {
   width: 100%;
@@ -29,7 +33,17 @@
   backdrop-filter: blur(2px);
   box-sizing: border-box;
   position: relative; /* absolute 제거 */
+  padding-top: 50px;
 }
+
+.signup-logo:hover{
+  filter:
+    drop-shadow(0 0 12px rgba(245, 191, 44, 0.8)) drop-shadow(0 0 70px rgba(245, 191, 44, 0.8));
+}
+.signup-logo{
+  padding-bottom: 20px;
+}
+
 
 /* 행 레이아웃 */
 .row {

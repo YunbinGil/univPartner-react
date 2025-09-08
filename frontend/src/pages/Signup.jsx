@@ -14,7 +14,8 @@ export default function Signup() {
   return (
     <div className="signup-root">
       <Logo_l className="signup-logo" aria-hidden onClick={() => nav('/')} />
-      <div className="signup-title h1" >내제휴</div>
+      <div className="signup-title h2" >내제휴</div>
+      <div className="signup-subtitle h3" >회원가입</div>
 
       <div className="signup-card">
         {/* 아이디 + 중복확인 */}
