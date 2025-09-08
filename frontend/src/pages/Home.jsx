@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import { useNavigate } from 'react-router-dom';
-import '../styles/index.css';
+import '../styles/home.css';
 
 // SVG를 React 컴포넌트로
 import Logo_s from '../assets/LOGO-s.svg?react';
@@ -29,10 +29,10 @@ export default function Home() {
         </div>
 
         {/* 타이틀 / 서브텍스트 */}
-        <h1 className="abs home-title" style={{ left: 234, top: 120 }}>내제휴</h1>
+        <h1 className="abs home-title h2" style={{ left: 234, top: 120 }}>내제휴</h1>
         <div className="abs home-sub-wrap" style={{ left: 243, top: 214 }}>
-          <div className="home-sub-accent">ㅇㅇ대학교 ㅇㅇ대학 ㅇㅇ학과</div>
-          <div className="home-sub">의 제휴혜택들을 알아볼까요?</div>
+          <div className="home-sub-accent h3">ㅇㅇ대학교 ㅇㅇ대학 ㅇㅇ학과</div>
+          <div className="home-sub h3">의 제휴혜택들을 알아볼까요?</div>
         </div>
 
         {/* 우측 상단 아이콘(버튼) — 원본 좌표를 'right'로 변환해 프레임 기준 고정 */}
@@ -50,11 +50,11 @@ export default function Home() {
           <div className="search-inner">
             <div className="search-left">
               <div className="icon-24"><Search className="svg-fit" aria-hidden /></div>
-              <input className="search-input" placeholder="검색어 입력" />
+              <input className="search-input m1 " placeholder="검색어 입력" />
             </div>
             <button type="button" className="search-filter proto-press" aria-label="상세조건">
               <div className="icon-24"><FilterBtn className="svg-fit" aria-hidden /></div>
-              <span className="filter-text">상세조건</span>
+              <span className="filter-text m3">상세조건</span>
             </button>
           </div>
         </div>
@@ -63,23 +63,23 @@ export default function Home() {
         <div className="abs dock" style={{ left: 330, top: 446 }}>
           <button className="dock-item proto-hover" onClick={() => nav('/map')}>
             <div className="dock-ico"><MapBtn className="svg-fit" /></div>
-            <div className="dock-label">제휴맵</div>
+            <div className="dock-label m1">제휴맵</div>
           </button>
           <button className="dock-item proto-hover" onClick={() => nav('/scrap')}>
             <div className="dock-ico"><ScrapBtn className="svg-fit" /></div>
-            <div className="dock-label">스크랩</div>
+            <div className="dock-label m1">스크랩</div>
           </button>
           <button className="dock-item proto-hover" onClick={() => nav('/home')}>
             <div className="dock-ico"><HomeBtn className="svg-fit" /></div>
-            <div className="dock-label">홈</div>
+            <div className="dock-label m1">홈</div>
           </button>
           <button className="dock-item proto-hover" onClick={() => nav('/mypage')}>
             <div className="dock-ico"><MyPageBtn className="svg-fit" /></div>
-            <div className="dock-label">마이페이지</div>
+            <div className="dock-label m1">마이페이지</div>
           </button>
           <button className="dock-item proto-hover" onClick={() => nav('/recent')}>
             <div className="dock-ico"><RecentBtn className="svg-fit" /></div>
-            <div className="dock-label">최근 본</div>
+            <div className="dock-label m1">최근 본</div>
           </button>
         </div>
       </div>

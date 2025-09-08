@@ -1,72 +1,95 @@
-:root {
-  --font-family-main: "Pretendard Variable", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  @font-face {
+    font-family: var(--font-family-main);
+    src: url('/src/assets/fonts/PretendardVariable.woff2') format('woff2');
+    font-weight: 100 900;
+    /* 가변폰트 범위 */
+    font-style: normal;
+    font-display: swap;
+  }
 
-  /* headline */
-  --h1-size: 64px;
-  --h1-weight: 700;
-  --h1-letter-spacing: 6.4px;
+  :root {
+    --font-family-main: "Pretendard Variable", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 
-  --h2-size: 40px;
-  --h2-weight: 700;
-  --h2-letter-spacing: 4px;
+    /* headline */
+    --h1-size: 64px;
+    --h1-weight: 700;
+    --h1-letter-spacing: 6.4px;
 
-  --h3-size: 24px;
-  --h3-weight: 500;
-  --h3-letter-spacing: 1.2px;
+    --h2-size: 40px;
+    --h2-weight: 700;
+    --h2-letter-spacing: 4px;
 
-  /* body */
-  --m1-size: 16px;
-  --m1-weight: 400;
-  --m1-line-height: 18px;
+    --h3-size: 24px;
+    --h3-weight: 500;
+    --h3-letter-spacing: 1.2px;
 
-  --m1-semiB-size: 16px;
-  --m1-semiB-weight: 600;
-  --m1-semiB-line-height: 18px;
-}
+    /* body */
+    --m1-size: 16px;
+    --m1-weight: 400;
+    --m1-line-height: 18px;
 
-/* 클래스 정의 */
-.h1 {
-  font-family: var(--font-family-main);
-  font-size: var(--h1-size);
-  font-weight: var(--h1-weight);
-  letter-spacing: var(--h1-letter-spacing);
-  color: black;
-  word-wrap: break-word;
-}
+    --m1-semiB-size: 16px;
+    --m1-semiB-weight: 600;
+    --m1-semiB-line-height: 18px;
 
-.h2 {
-  font-family: var(--font-family-main);
-  font-size: var(--h2-size);
-  font-weight: var(--h2-weight);
-  letter-spacing: var(--h2-letter-spacing);
-  color: black;
-  word-wrap: break-word;
-}
+    --m3-size: 12px;
+    --m3-weight: 200;
+    --m3-line-height: 18px;
 
-.h3 {
-  font-family: var(--font-family-main);
-  font-size: var(--h3-size);
-  font-weight: var(--h3-weight);
-  letter-spacing: var(--h3-letter-spacing);
-  line-height: 18px;
-  color: black;
-  word-wrap: break-word;
-}
+    /* 클래스 정의 */
+    .h1 {
+      font-family: var(--font-family-main);
+      font-size: var(--h1-size);
+      font-weight: var(--h1-weight);
+      letter-spacing: var(--h1-letter-spacing);
+      color: black;
+      word-wrap: break-word;
+    }
 
-.m1 {
-  font-family: var(--font-family-main);
-  font-size: var(--m1-size);
-  font-weight: var(--m1-weight);
-  line-height: var(--m1-line-height);
-  color: black;
-  word-wrap: break-word;
-}
+    .h2 {
+      font-family: var(--font-family-main);
+      font-size: var(--h2-size);
+      font-weight: var(--h2-weight);
+      letter-spacing: var(--h2-letter-spacing);
+      color: black;
+      word-wrap: break-word;
+    }
 
-.m1-semiB {
-  font-family: var(--font-family-main);
-  font-size: var(--m1-semiB-size);
-  font-weight: var(--m1-semiB-weight);
-  line-height: var(--m1-semiB-line-height);
-  color: white;
-  word-wrap: break-word;
-}
+    .h3 {
+      font-family: var(--font-family-main);
+      font-size: var(--h3-size);
+      font-weight: var(--h3-weight);
+      letter-spacing: var(--h3-letter-spacing);
+      line-height: 18px;
+      color: black;
+      word-wrap: break-word;
+    }
+
+    .m1 {
+      font-family: var(--font-family-main);
+      font-size: var(--m1-size);
+      font-weight: var(--m1-weight);
+      line-height: var(--m1-line-height);
+      color: black;
+      word-wrap: break-word;
+    }
+
+    .m1-semiB {
+      font-family: var(--font-family-main);
+      font-size: var(--m1-semiB-size);
+      font-weight: var(--m1-semiB-weight);
+      line-height: var(--m1-semiB-line-height);
+      color: white;
+      word-wrap: break-word;
+    }
+
+    .m3 {
+      font-family: var(--font-family-main);
+      font-size: var(--m3-size);
+      font-weight: var(--m3-weight);
+      line-height: var(--m3-line-height);
+      color: black;
+      word-wrap: break-word;
+    }
+
+  }
