@@ -128,6 +128,7 @@ transition: filter 0.3s ease;}
 .icon-24 { width: 24px; height: 24px; }
 .icon-btn { width: 100%; height: 100%; }
 button { font: inherit; }
+button:hover { outline: none; }
 
 /* 텍스트(줄바꿈 깨짐 방지) */
 .home-title, .home-sub-accent, .home-sub, .dock-label {

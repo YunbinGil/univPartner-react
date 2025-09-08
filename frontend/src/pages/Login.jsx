@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import Logo from '../assets/LOGO-l.svg?react'
 import '../styles/index.css' 
@@ -24,7 +25,7 @@ export default function Login() {
 
           <button className="submit" onClick={() => nav('/home')}>로그인 하기</button>
         </form>
-            <a href="/signup" className="help-link">아직 회원이 아니신가요?</a>
+            <button className="help-link" onClick={() => nav('/signup')}>아직 회원이 아니신가요?</button>
             <a href="/forgot-password" className="help-link">비밀번호를 잊으셨나요?</a>
       </div>
     </main>
