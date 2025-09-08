@@ -64,7 +64,7 @@ export default function Signup() {
           {pw && pw2 && pw !== pw2 && (
             <p className="error m1">비밀번호가 일치하지 않습니다.</p>
           )}
-          <button className="btn btn-primary btn-lg m1-semiB">가입하기</button>
+          <button className="btn btn-primary btn-lg m1-semiB" onClick={() => nav('/signup-detail')}>가입하기</button>
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import Map from './pages/Map.jsx'
 import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx'
 import Signup from './pages/Signup.jsx'
+import SignupDetail from './pages/SignupDetail.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,6 +30,7 @@ function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/home" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/signup-detail" element={<SignupDetail />} />
       </Routes>
     </>
   )
