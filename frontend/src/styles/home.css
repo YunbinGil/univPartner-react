@@ -24,8 +24,8 @@ button:hover { outline: none; }
   white-space: nowrap; word-break: keep -all; line-height: 1.4;
 }
 .home-sub-wrap { display:flex; align-items:center; gap:10px; }
-.home-sub-accent.h3 { 
-    color: var(--color-main) !important; 
+.home-sub-accent.h3{ 
+    color: var(--color-main); 
 }
 
 /* 우측 상단 아이콘 버튼 */

@@ -76,7 +76,7 @@ transition: filter 0.3s ease;}
 }
 
 .help-link.m1-semiB {
-  color: var(--color-input-text) !important;
+  color: var(--color-input-text);
 }
 
 .help-link:hover {

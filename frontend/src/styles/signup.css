@@ -133,7 +133,7 @@
 
 .error {
   margin: 0;
-  color: var(--color-error) !important;
+  color: var(--color-error);
   text-align: center;
 }
 
