@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../lib/api'  // 위에서 만든 axios 인스턴스
-import '../styles/common.css';
+import '../styles/excommon.css';
 
 export default function exHome() {
   return (
