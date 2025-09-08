@@ -1,4 +1,5 @@
-/* src/index.css */
+@import url("./colors.css");
+@import url("./fonts.css");
 
 html, body, #root { height: 100%; }
 

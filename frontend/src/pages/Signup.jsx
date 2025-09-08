@@ -14,29 +14,29 @@ export default function Signup() {
   return (
     <div className="signup-root">
       <Logo_l className="signup-logo" aria-hidden onClick={() => nav('/')} />
-      <div className="signup-title">내제휴</div>
+      <div className="signup-title h1" >내제휴</div>
 
       <div className="signup-card">
         {/* 아이디 + 중복확인 */}
         <div className="row-id">
-          <label className="label">아이디</label>
+          <label className="label m1">아이디</label>
           <input
             type="text"
-            className="input-control"
+            className="input-control m1"
             placeholder="아이디 입력"
             value={loginId}
             onChange={(e) => setLoginId(e.target.value)}
           />
-          <button className="btn btn-primary btn-52">중복확인</button>
+          <button className="btn btn-primary btn-52 m1-semiB">중복확인</button>
         </div>
 
         {/* 비밀번호 */}
         <div className="row">
           <div className="field full">
-            <label className="label">비밀번호</label>
+            <label className="label m1">비밀번호</label>
             <input
               type="password"
-              className="input-control"
+              className="input-control m1"
               placeholder="비밀번호 입력"
               value={pw}
               onChange={(e) => setPw(e.target.value)}
@@ -44,15 +44,15 @@ export default function Signup() {
           </div>
         </div>
 
-        <p className="hint">*비밀번호에는 6자리 이상이어야 합니다.</p>
+        <p className="hint m1">*비밀번호에는 6자리 이상이어야 합니다.</p>
 
         {/* 비밀번호 확인 */}
         <div className="row">
           <div className="field full">
-            <label className="label">비밀번호 확인</label>
+            <label className="label m1">비밀번호 확인</label>
             <input
               type="password"
-              className="input-control"
+              className="input-control m1"
               placeholder="비밀번호 재입력"
               value={pw2}
               onChange={(e) => setPw2(e.target.value)}
@@ -62,9 +62,9 @@ export default function Signup() {
 
         <div className="footer">
           {pw && pw2 && pw !== pw2 && (
-            <p className="error">비밀번호가 일치하지 않습니다.</p>
+            <p className="error m1">비밀번호가 일치하지 않습니다.</p>
           )}
-          <button className="btn btn-primary btn-lg">가입하기</button>
+          <button className="btn btn-primary btn-lg m1-semiB">가입하기</button>
         </div>
       </div>
     </div>

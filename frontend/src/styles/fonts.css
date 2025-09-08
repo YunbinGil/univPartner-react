@@ -1,0 +1,72 @@
+:root {
+  --font-family-main: "Pretendard Variable", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+
+  /* headline */
+  --h1-size: 64px;
+  --h1-weight: 700;
+  --h1-letter-spacing: 6.4px;
+
+  --h2-size: 40px;
+  --h2-weight: 700;
+  --h2-letter-spacing: 4px;
+
+  --h3-size: 24px;
+  --h3-weight: 500;
+  --h3-letter-spacing: 1.2px;
+
+  /* body */
+  --m1-size: 16px;
+  --m1-weight: 400;
+  --m1-line-height: 18px;
+
+  --m1-semiB-size: 16px;
+  --m1-semiB-weight: 600;
+  --m1-semiB-line-height: 18px;
+}
+
+/* 클래스 정의 */
+.h1 {
+  font-family: var(--font-family-main);
+  font-size: var(--h1-size);
+  font-weight: var(--h1-weight);
+  letter-spacing: var(--h1-letter-spacing);
+  color: black;
+  word-wrap: break-word;
+}
+
+.h2 {
+  font-family: var(--font-family-main);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  letter-spacing: var(--h2-letter-spacing);
+  color: black;
+  word-wrap: break-word;
+}
+
+.h3 {
+  font-family: var(--font-family-main);
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  letter-spacing: var(--h3-letter-spacing);
+  line-height: 18px;
+  color: black;
+  word-wrap: break-word;
+}
+
+.m1 {
+  font-family: var(--font-family-main);
+  font-size: var(--m1-size);
+  font-weight: var(--m1-weight);
+  line-height: var(--m1-line-height);
+  color: black;
+  word-wrap: break-word;
+}
+
+.m1-semiB {
+  font-family: var(--font-family-main);
+  font-size: var(--m1-semiB-size);
+  font-weight: var(--m1-semiB-weight);
+  line-height: var(--m1-semiB-line-height);
+  color: white;
+  word-wrap: break-word;
+}
