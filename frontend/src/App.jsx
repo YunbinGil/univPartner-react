@@ -15,13 +15,13 @@ function App() {
   return (
     <>
       {/* <nav> 나중에 삭제 */}
-      <nav className="p-4 border-b mb-6">
+      {/* <nav className="p-4 border-b mb-6">
         <Link to="/" className="mr-4">Login</Link>
         <Link to="/search" className="mr-4">Search</Link>
         <Link to="/map" className="mr-4">Map</Link>
         <Link to="/home" className="mr-4">Home</Link>
         <Link to="/exHome" className="mr-4">exHome</Link>
-      </nav>
+      </nav> */}
 
       {/* routes */}
       <Routes>

@@ -5,7 +5,7 @@ html, body, #root { height: 100%; }
 
 /* 화면 가운데 정렬 (Figma Auto Layout의 부모 컨테이너 느낌) */
 .login-wrap {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
