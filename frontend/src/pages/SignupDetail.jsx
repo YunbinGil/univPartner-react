@@ -4,12 +4,17 @@ import { useState } from "react";
 import "../styles/signupDetail.css";
 
 import Logo_s from '../assets/LOGO-s.svg?react';
+import ArrowDown from '../assets/btn-arrowDown.svg';
+import ArrowUp from '../assets/btn-arrowUp.svg';
 
 export default function SignupDetail() {
   const [nickname, setNickname] = useState("");
   const [univ, setUniv] = useState("");
-  const [college, setCollege] = useState("");
-  const [dept, setDept] = useState("");
+  const [Dept, setDept] = useState("");
+  const [Major, setMajor] = useState("");
+  const [openUniv, setOpenUniv] = useState(false);
+  const [openDept, setOpenDept] = useState(false);
+  const [openMajor, setOpenMajor] = useState(false);
 
   const nav = useNavigate();
 
@@ -42,64 +47,68 @@ export default function SignupDetail() {
         {/* 대학교 */}
         <div className="row">
           <label className="label w-83 m1" htmlFor="sel-univ">대학교</label>
-          <div className="select-wrap m1">
+          <div className={`select-wrap m1 ${openUniv ? "open" : ""}`}>
             <select
               id="sel-univ"
               className="select-control"
               value={univ}
               onChange={(e) => setUniv(e.target.value)}
+              onClick={() => setOpenUniv((v) => !v)}
+              onBlur={() => setOpenUniv(false)}
             >
-              {/* api 가져와서 선택하는 로직짜기  m1글씨체로
-              그리고 선택박스도 디자인 설정하기*/}
               <option value="" disabled>대학교 선택</option>
               <option value="Konkuk">건국대학교</option>
             </select>
-            <span className="select-arrow" aria-hidden>▼</span> 
+            <img src={ArrowDown} alt="" aria-hidden className="select-arrow" />
             {/* 이거 아이콘 벡터이미지 저장해서 불러오기 */}
           </div>
         </div>
 
         {/* 단과대 */}
         <div className="row">
-          <label className="label w-83 m1" htmlFor="sel-college">단과대</label>
-          <div className="select-wrap">
+          <label className="label w-83 m1" htmlFor="sel-Dept">단과대</label>
+          <div className={`select-wrap m1 ${openDept ? "open" : ""}`}>
             <select
-              id="sel-college"
+              id="sel-Dept"
               className="select-control"
-              value={college}
-              onChange={(e) => setCollege(e.target.value)}
+              value={Dept}
+              onChange={(e) => setDept(e.target.value)}
+              onClick={() => setOpenDept((v) => !v)}
+              onBlur={() => setOpenDept(false)}
             >
               <option value="" disabled>단과대 선택</option>
               <option value="Engineering">공과대학</option>
               <option value="Business">경영대학</option>
             </select>
-            <span className="select-arrow" aria-hidden>▼</span>
+            <img src={ArrowDown} alt="" aria-hidden className="select-arrow" />
           </div>
         </div>
 
         {/* 학과 */}
         <div className="row">
-          <label className="label w-83 m1" htmlFor="sel-dept">학과</label>
-          <div className="select-wrap">
+          <label className="label w-83 m1" htmlFor="sel-Major">학과</label>
+          <div className={`select-wrap m1 ${openMajor ? "open" : ""}`}>
             <select
-              id="sel-dept"
+              id="sel-Major"
               className="select-control"
-              value={dept}
-              onChange={(e) => setDept(e.target.value)}
+              value={Major}
+              onChange={(e) => setMajor(e.target.value)}
+              onClick={() => setOpenMajor((v) => !v)}
+              onBlur={() => setOpenMajor(false)}
             >
               <option value="" disabled>학과 선택</option>
               <option value="CS">컴퓨터공학부</option>
               <option value="EE">전자공학부</option>
             </select>
-            <span className="select-arrow" aria-hidden>▼</span>
+            <img src={ArrowDown} alt="" aria-hidden className="select-arrow" />
           </div>
         </div>
 
         {/* 시작하기 버튼 */}
         <div className="footer">
-          <button className="btn btn-primary btn-lg m1-semiB" type="button" onClick={()=> nav('/home')}>시작하기</button>
+          <button className="btn btn-primary btn-lg m1-semiB" type="button" onClick={() => nav('/home')}>시작하기</button>
         </div>
-      </div>      
+      </div>
     </div>
   );
 }
