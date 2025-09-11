@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import '../styles/signup.css';
+import '../styles/components/dialog.css';
+import { signup, checkExists } from '../services/userService';
 
 import Logo_l from '../assets/LOGO-l.svg?react';
+import Dialog from '../components/dialog.jsx';
 
 export default function Signup() {
   const nav = useNavigate();
@@ -11,12 +14,97 @@ export default function Signup() {
   const [pw, setPw] = useState("");
   const [pw2, setPw2] = useState("");
 
+  const [idMsg, setIdMsg] = useState("");
+  const [msg, setMsg] = useState("");
+  const [idChecked, setIdChecked] = useState(false);
+  const [dlgOpen, setDlgOpen] = useState(false);
+  const [dlg, setDlg] = useState({ title: '', message: '', onClose: null });
+
+  function openDialog({ title, message, onClose }) {
+    setDlg({ title, message, onClose: onClose || null });
+    setDlgOpen(true);
+  }
+  function closeDialog() {
+    setDlgOpen(false);
+    const cb = dlg.onClose;
+    setDlg({ title: '', message: '', onClose: null });
+    cb?.();
+  }
+  async function onCheckId() {
+    setIdMsg("");
+    setIdChecked(false);
+    if (!loginId.trim()) {
+      setIdMsg("아이디를 먼저 입력하세요.");
+      return;
+    }
+    try {
+      setChecking(true);
+      const res = await checkExists(loginId);
+      if (res.exists) {
+        setIdMsg("이미 존재하는 아이디입니다 ❌");
+        setIdChecked(false);
+      } else {
+        setIdMsg("사용 가능한 아이디입니다 ✅");
+        setIdChecked(true);
+      }
+    } catch (e) {
+      console.error(e);
+      setIdMsg("중복확인 중 오류가 발생했습니다.");
+    } finally {
+      setChecking(false);
+    }
+  }
+  const handleCheckId = async () => {
+    const res = await checkIdExists(loginId)
+    if (res.exists) {
+      setIdMsg('이미 존재하는 아이디입니다 ❌')
+      setIdCheckPassed(false)
+    } else {
+      setIdMsg('사용 가능한 아이디입니다 ✅')
+      setIdCheckPassed(true)
+    }
+  }
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    setMsg("");
+    if (!idChecked) {
+      setMsg("아이디 중복확인을 해주세요.");
+      return;
+    }
+    if (pw.length < 6) {
+      setMsg("비밀번호는 6자 이상이어야 합니다.");
+      return;
+    }
+    if (pw !== pw2) {
+      setMsg("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+    try {
+      setLoading(true);
+      // 명세: POST /app/signup  { loginId, pwd }
+      const res = await signup({ loginId, pwd: pw });
+      if (res.resultCode === 200) {
+        // 성공 시 후속 이동 (세부정보 입력 페이지 등)
+        nav('/signup-detail');
+      } else {
+        setMsg(res.message || '회원가입 실패');
+      }
+    } catch (err) {
+      console.error(err);
+      setMsg('통신 오류');
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="signup-root">
       <Logo_l className="signup-logo" aria-hidden onClick={() => nav('/')} />
       <div className="signup-title h2" >내제휴</div>
       <div className="signup-subtitle h3" >회원가입</div>
 
+      <form onSubmit={onSubmit}></form>
       <div className="signup-card">
         {/* 아이디 + 중복확인 */}
         <div className="row-id">
@@ -28,7 +116,27 @@ export default function Signup() {
             value={loginId}
             onChange={(e) => setLoginId(e.target.value)}
           />
-          <button className="btn btn-primary btn-52 m1-semiB">중복확인</button>
+          <button className="btn btn-primary btn-52 m1-semiB"
+            onClick={async () => {
+              if (!loginId.trim()) {
+                openDialog({ title: '중복확인', message: '아이디를 입력하세요.' });
+                return;
+              }
+              try {
+                const res = await checkExists(loginId);
+                if (res.exists) {
+                  setIdChecked(false);
+                  openDialog({ title: '중복확인', message: '이미 존재하는 아이디입니다 ❌' });
+                } else {
+                  setIdChecked(true);
+                  openDialog({ title: '중복확인', message: '사용 가능한 아이디입니다 ✅' });
+                }
+              } catch (e) {
+                console.error(e);
+                openDialog({ title: '오류', message: '중복확인 중 문제가 발생했습니다.' });
+              }
+            }}
+          >중복확인</button>
         </div>
 
         {/* 비밀번호 */}
@@ -65,9 +173,37 @@ export default function Signup() {
           {pw && pw2 && pw !== pw2 && (
             <p className="error m1">비밀번호가 일치하지 않습니다.</p>
           )}
-          <button className="btn btn-primary btn-lg m1-semiB" onClick={() => nav('/signup-detail')}>가입하기</button>
+          <button className="btn btn-primary btn-lg m1-semiB"
+            onClick={async (e) => {
+              e.preventDefault();
+              if (!idChecked) { openDialog({ title: '회원가입', message: '아이디 중복확인을 해주세요.' }); return; }
+              if (pw.length < 6) { openDialog({ title: '회원가입', message: '비밀번호는 6자 이상이어야 합니다.' }); return; }
+              if (pw !== pw2) { openDialog({ title: '회원가입', message: '비밀번호가 일치하지 않습니다.' }); return; }
+              try {
+                const res = await signup({ loginId, pwd: pw });
+                if (res.resultCode === 200) {
+                  openDialog({
+                    title: '회원가입',
+                    message: '회원가입 성공! 다음 단계로 이동합니다.',
+                    onClose: () => nav('/signup-detail')
+                  });
+                } else {
+                  openDialog({ title: '회원가입 실패', message: res.message || '잠시 후 다시 시도해주세요.' });
+                }
+              } catch (err) {
+                console.error(err);
+                openDialog({ title: '네트워크 오류', message: '서버와 통신 중 오류가 발생했습니다.' });
+              }
+            }}
+          >가입하기</button>
         </div>
       </div>
+      <Dialog
+        open={dlgOpen}
+        title={dlg.title}
+        message={dlg.message}
+        onClose={closeDialog}
+      />
     </div>
   );
 }
