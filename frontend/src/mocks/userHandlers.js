@@ -90,8 +90,9 @@ export const userHandlers = [
     if (!user) {
       return HttpResponse.json({ resultCode: 400, message: 'INVALID_USER' }, { status: 400 });
     }
-    
+
     Object.assign(user, { nickname, univ, dept, major });
+    
     return HttpResponse.json({ resultCode: 200, message: 'SUCCESS' }, { status: 200 })
   })
 ]

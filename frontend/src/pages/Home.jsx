@@ -19,6 +19,10 @@ import FilterBtn from '../assets/btn-filter.svg?react';
 export default function Home() {
   const nav = useNavigate();
 
+  const univ = localStorage.getItem('univ');
+  const dept = localStorage.getItem('dept');
+  const major = localStorage.getItem('major');
+
   return (
     <div className="page">
       {/* Figma 프레임(1440px)을 가운데 고정 */}
@@ -31,7 +35,7 @@ export default function Home() {
         {/* 타이틀 / 서브텍스트 */}
         <h1 className="abs home-title h2" style={{ left: 234, top: 120 }}>내제휴</h1>
         <div className="abs home-sub-wrap" style={{ left: 243, top: 214 }}>
-          <div className="home-sub-accent h3">ㅇㅇ대학교 ㅇㅇ대학 ㅇㅇ학과</div>
+          <div className="home-sub-accent h3">{univ} {dept} {major}</div>
           <div className="home-sub h3">의 제휴혜택들을 알아볼까요?</div>
         </div>
 

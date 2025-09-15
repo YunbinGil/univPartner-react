@@ -118,6 +118,9 @@ export default function SignupDetail() {
     try {
       const res = await signupDetail({ nickname, univ, dept, major: major });
       if (res.resultCode === 200) {
+        localStorage.setItem('univ', String(univ));
+        localStorage.setItem('dept', String(dept));
+        localStorge.setItem('major', String(major));
         openDialog({
           title: '상세정보 설정 성공',
           message: ' 시작하기 버튼을 눌러 홈으로 이동합니다.',
