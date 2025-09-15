@@ -1,6 +1,6 @@
 //userService.js
 
-import { api, API_BASE  } from '../lib/api'
+import { api, API_BASE } from '../lib/api'
 
 // 🧪 프런트 전용 인메모리 목업 DB (런타임 동안만 유지)
 const mockDB = {
@@ -12,11 +12,11 @@ const mockDB = {
 // payload: { loginId, pwd }
 // return: { resultCode, message, user? }
 export async function signup({ loginId, pwd }) {
-    if (!API_BASE) {
-    if (checkExists(loginId).exists) {
+  if (!API_BASE) {
+    if (checkExists(loginId, "loginId").exists) {
       return { resultCode: 401, message: "DUPLICATE_ID" };
     }
-    if( !loginId || !pwd ) {
+    if (!loginId || !pwd) {
       return { resultCode: 400, message: "MISSING_FIELDS" };
     }
     mockDB.users.add(loginId);
@@ -28,16 +28,21 @@ export async function signup({ loginId, pwd }) {
     password: pwd,
   });
   return res.data;
-  
+
 }
 
 // [POST] [GET] /app/signup
 // payload: { loginId }
 // return: { resultCode, message, exists?}
-export async function checkExists(payload) {
+export async function checkExists(payload, target) {
   if (!API_BASE) {
-    return { exists: mockDB.users.has(payload) };
+    return { exists: false }; // 예시로 항상 false 반환
   }
-  const res = await api.get(`/exists?loginID=${encodeURIComponent(payload)}`);
+  const res = await api.get(`/exists?${target}=${encodeURIComponent(payload)}`);
   return res.data;
 }
+
+
+// [POST] [GET] /app/signup
+// payload: { loginId }
+// return: { resultCode, message, exists?}
