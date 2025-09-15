@@ -118,7 +118,7 @@
 }
 
 .btn-primary {
-  background: var(--color-main) ;
+  background: var(--color-main);
 }
 
 .btn-52 {
@@ -129,6 +129,11 @@
 .btn-lg {
   width: 320px;
   height: 52px;
+}
+.btn-lg:disabled {
+  background-color: var(--color-disable);
+  color: var(--color-disable-text);
+  cursor: not-allowed;
 }
 
 /* 힌트 & 에러 */

@@ -31,5 +31,10 @@
     "tailwindcss": "^4.1.12",
     "vite": "^7.1.2",
     "vite-plugin-svgr": "^4.5.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
