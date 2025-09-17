@@ -1,0 +1,196 @@
+@import url("./fonts.css");
+@import url("./colors.css");
+
+.signup-root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  padding: 48px 16px;
+  box-sizing: border-box;
+  position: relative;
+  font-family: var(--font-family-main);
+}
+
+.signup-title {
+  margin: 0 0 24px 0;
+  text-align: center;
+  color: var(--color-text);
+}
+.signup-subtitle.h3{
+  font-weight: 800;
+  color: var(--color-amber)
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 466px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  backdrop-filter: blur(2px);
+  box-sizing: border-box;
+  position: relative; /* absolute 제거 */
+  padding-top: 50px;
+}
+
+.signup-logo:hover{
+  filter:
+    drop-shadow(0 0 12px rgba(245, 191, 44, 0.8)) drop-shadow(0 0 70px rgba(245, 191, 44, 0.8));
+}
+.signup-logo{
+  padding-bottom: 20px;
+}
+
+
+/* 행 레이아웃 */
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  width: 100%;
+}
+
+/* 아이디 + 중복확인 전용 */
+.row-id {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 20px;
+  align-items: end;
+  width: 100%;
+}
+
+.row-id .label {
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
+  align-items: flex-start;
+}
+
+/* 필드 */
+.field {
+  position: relative;
+  flex: 1 1 0;
+}
+.field.full {
+  width: 456px;
+  flex: none;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-text);
+  text-align: left;
+}
+
+/* 진짜 input */
+.input-control {
+  width: 100%;
+  height: 52px;
+  border-radius: 10px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-sizing: border-box;
+
+  padding: 14px 13px;
+  line-height: normal;
+  outline: none;
+}
+.input-control::placeholder {
+  color: var(--color-input-text);
+}
+
+/* 버튼 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0 16px;
+  background: #eaeaea;
+}
+.btn:hover{
+  background: var(--color-main-hover);
+}
+
+.btn-primary {
+  background: var(--color-main);
+}
+
+.btn-52 {
+  height: 52px;
+  white-space: nowrap;
+}
+
+.btn-lg {
+  width: 320px;
+  height: 52px;
+}
+.btn-lg:disabled {
+  background-color: var(--color-disable);
+  color: var(--color-disable-text);
+  cursor: not-allowed;
+}
+
+/* 힌트 & 에러 */
+.hint {
+  margin: 0;
+  text-align: center;
+  color: var(--color-info);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.error {
+  margin: 0;
+  color: var(--color-error);
+  text-align: center;
+}
+
+/* 붙여서 하나처럼 보이고 싶을 때 */
+.row-id.compact {
+  column-gap: 0;
+}
+.row-id.compact .input-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.row-id.compact .btn-52 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0 18px;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .signup-root {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .signup-card {
+    width: 100%;
+    max-width: 466px;
+  }
+
+  .btn-lg {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 420px) {
+  .row-id {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+}

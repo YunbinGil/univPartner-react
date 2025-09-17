@@ -1,0 +1,77 @@
+/* ---------------------------------------------------------- */
+/* src/styles/signupAcademic.css */
+@import url("./colors.css");
+@import url("./fonts.css");
+
+.signup-ac-root{
+  width:100%; min-height:100vh; position:relative; background:var(--color-bg);
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  padding:64px 16px 48px; box-sizing:border-box;
+}
+
+/* 좌상단 작은 타이틀 (원본: h2 40/700/LS 4) */
+.page-h2{
+  position:static;
+  margin:0;
+}
+
+/* 큰 타이틀 */
+.page-h1{
+  position:static; top:284px; left:553px;
+  color:var(--color-amber); margin:0;
+  text-align: center; white-space: nowrap;
+  padding-top: 16px;
+  padding-bottom: 24px;
+}
+
+/* 카드 */
+.signup-ac-card{
+  width:466px; display:flex; flex-direction:column; gap:20px;
+  align-items:center; backdrop-filter:blur(2px);
+}
+
+/* 라벨 + 입력/버튼 2열 */
+.row-id{ display:grid; grid-template-columns:1fr auto; column-gap:20px; align-items:end; width:100%; }
+.row-id .label{ grid-column:1 / -1; margin-bottom:8px; text-align:left; }
+
+/* 공통 행 */
+.row{ display:flex; align-items:center; gap:12px; width:100%; }
+
+.label{ font-family:var(--font-family-main); font-size:var(--m1-size); font-weight:var(--m1-weight); line-height:var(--m1-line-height); color:#000; }
+.w-83{ width:83px; flex:0 0 83px; }
+
+.input-control{
+  width:100%; height:52px; border-radius:10px; background:#fff; border:1px solid var(--color-border);
+  padding:14px 13px; font-size:var(--m1-size); font-family:var(--font-family-main); color:#111; outline:none; box-sizing:border-box;
+}
+
+/* select */
+.select-wrap{ position:relative; display:flex; align-items:center; width:360px; }
+.select-control{
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  width:100%; height:52px; border-radius:10px; background:#fff; border:1px solid var(--color-border);
+  padding:0 40px 0 20px; font-size:var(--m1-size); font-family:var(--font-family-main); color:#111;
+}
+.select-control:invalid{ color:#9c9c9c; }
+.select-arrow{  position:absolute; right:16px; top:50%; transform:translateY(-50%);
+   width:16px; height:16px; pointer-events:none; display:block; }
+.select-wrap.open .select-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+
+/* 버튼 */
+.btn{ display:inline-flex; align-items:center; justify-content:center; border:none; cursor:pointer; border-radius:10px; padding:0 16px; background:#eaeaea; color:#111; font-size:var(--m1-size); font-weight:600; }
+.btn:hover{ background:var(--color-main-hover); color:#fff; }
+.btn-primary{ background:var(--color-main); color:#fff; }
+.btn-52{ height:52px; white-space:nowrap; }
+.btn-lg{ width:320px; height:52px; }
+
+.footer{ display:flex; align-items:center; justify-content:center; width:100%; margin-top:8px; }
+
+/* 반응형: 좁은 화면에서 카드 중앙, 절대요소 static 처리 */
+@media (max-width: 1024px){
+  .page-h2, .page-h1, .decor{ position:static; }
+  .signup-ac-root{ gap:16px; }
+  .page-h1{ text-align:center; }
+}

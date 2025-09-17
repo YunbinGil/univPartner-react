@@ -1,0 +1,231 @@
+@import url("./colors.css");
+@import url("./fonts.css");
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+}
+
+.frame1440 {
+  --stage: clamp(960px, 90vw, 1440px);
+  /* 화면이 줄면 함께 줄고, 1440px 이상은 고정 */
+  width: var(--stage);
+  position: relative;
+  margin: 0 auto;
+}
+
+/* 공통 */
+.abs {
+  position: absolute;
+}
+
+.svg-fit {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.svg-fit:hover {
+  filter:
+    drop-shadow(0 0 12px rgba(245, 191, 44, 0.8)) drop-shadow(0 0 70px rgba(245, 191, 44, 0.8));
+}
+
+.icon-24 {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-btn {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+button:hover {
+  outline: none;
+}
+
+/* 텍스트(줄바꿈 깨짐 방지) */
+.home-title,
+.home-sub-accent,
+.home-sub,
+.dock-label {
+  white-space: nowrap;
+  word-break: keep -all;
+  line-height: 1.4;
+}
+
+.home-sub-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-sub-accent.h3 {
+  color: var(--color-main);
+  font-weight: 800;
+}
+
+.home-sub.h3{
+  font-weight: 600;
+}
+
+/* 우측 상단 아이콘 버튼 */
+.icon-btn {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  border-radius: 12px;
+  width: 72px;
+  height: 72px;
+}
+
+.icon-btn svg {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-btn--lg {
+  width: 64px;
+  height: 64px;
+}
+
+.proto-hover {
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.proto-hover:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: drop-shadow(0 0 12px rgba(245, 191, 44, .6));
+}
+
+.proto-press {
+  transition: transform .1s ease;
+}
+
+.proto-press:active {
+  transform: scale(.96);
+}
+
+/* 검색 바(709x52) — Figma auto-layout 그대로 */
+.search-bar {
+  border-radius: 100px;
+  outline: 1px var(--color-border) solid;
+  outline-offset: -.5px;
+  background: #fff;
+}
+
+.search-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 0 12px;
+  /* 좌:20, 우:16(필터버튼 text 간격 맞춤) */
+  gap: 14px;
+}
+
+.search-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.search-input {
+  border: 0;
+  outline: 0;
+  flex: 1 1 auto;
+  /* Figma 기준 내부 폭 맞춤 */
+  min-width: 560px;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: var(--color-input-text);
+}
+
+.search-filter {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0px 8px;
+  height: 100%;
+}
+
+.filter-text {
+  color: var(--color-info);
+}
+
+/* 도크(아이템 간 간격 84px) */
+.dock {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 84px;
+  justify-content: center;
+}
+
+.dock-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dock-ico {
+  width: 48px;
+  height: 48px;
+}
+
+.dock-label {
+  text-align: center;
+}
+
+/* 접근성 포커스 */
+.icon-btn:focus-visible,
+.search-filter:focus-visible,
+.dock-item:focus-visible {
+  outline: 2px solid var(--color-main);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* 기본 반응형: 프레임 가운데 고정 + 작은 화면에서 스케일 다운 */
+@media (max-width: 1440px) {
+  .frame1440 {
+    transform: scale(calc(100vw / 1440));
+    transform-origin: top center;
+    height: calc(900px * (100vw / 1440));
+    /* 레이아웃 공간 확보 */
+  }
+
+  .page {
+    min-height: calc(900px * (100vw / 1440));
+  }
+}

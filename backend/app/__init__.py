@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from flask_mysqldb import MySQL
 
 mysql = MySQL()
+load_dotenv(dotenv_path="backend/.env")
 
 def create_app():
     load_dotenv()  # .env 파일에서 환경 변수 로드

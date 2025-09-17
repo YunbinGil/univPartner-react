@@ -1,0 +1,85 @@
+@import url("./colors.css");
+@import url("./fonts.css");
+
+html, body, #root { height: 100%; }
+
+/* 화면 가운데 정렬 (Figma Auto Layout의 부모 컨테이너 느낌) */
+.login-wrap {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  background: var(--color-bg);
+}
+
+/* 카드 */
+.login-card {
+  width: 466px;
+  display: flex;
+  flex-direction: column;     /* Auto Layout (수직) */
+  align-items: center;
+  gap: 24px;                  /* Auto Layout gap */
+}
+
+/* 로고 + 브랜드 */
+.logo { width: 160; height: auto; display: block; 
+transition: filter 0.3s ease;}
+.logo:hover {
+    filter:
+    drop-shadow(0 0 12px rgba(245,191,44,0.8))
+    drop-shadow(0 0 70px rgba(245,191,44,0.8));
+}
+
+/* 폼 */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;                  /* 필드 간격 */
+}
+
+.field {
+  display: flex;
+  flex-direction: column;     /* 라벨 위, 인풋 아래 */
+  gap: 8px;
+  align-items: stretch;       /* 라벨/인풋 너비 꽉 채움 */
+  text-align: left;           /* 라벨 왼쪽 정렬 */
+}
+
+.field > input {
+  height: 52px;
+  padding: 0 13px;
+  border-radius: 10px;
+  outline: 1px solid var(--color-border);
+  border: none;
+  background: var(--color-bg);
+}
+
+.submit {
+  height: 52px;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-main);
+  color: var(--color-bg);
+  cursor: pointer;
+}
+
+
+.help-link {
+  display: block;           /* 한 줄씩 떨어지게 */
+  text-align: center;
+  color: var(--color-info);
+  text-decoration: underline;  /* 밑줄 */
+  cursor: pointer;
+  margin-top: 1px;
+}
+
+.help-link.m1-semiB {
+  color: var(--color-input-text);
+}
+
+.help-link:hover {
+  color: var(--color-main);            /* hover 시 노란색 */
+}
+
